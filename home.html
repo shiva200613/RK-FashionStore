@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RK FASHIONS - Main Store & Collection Directory</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= ANNOUNCEMENT BAR ================= -->
+<div class="announcement-bar">
+    <div class="announcement-content">
+        <span>✨ SPRING 2026 COLLECTION IS HERE • FREE SHIPPING ON ORDERS ABOVE ₹999 • USE CODE <strong>WELCOME40</strong> FOR 40% OFF ✨</span>
+    </div>
+</div>
+
+<!-- ================= HEADER ================= -->
+<header>
+    <button class="icon-btn mobile-menu-toggle" id="mobileMenuToggle" onclick="toggleMobileDrawer()" aria-label="Toggle Navigation Menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+    </button>
+
+    <div class="logo">
+        <a href="home.html">RK FASHIONS</a>
+    </div>
+
+    <nav>
+        <a href="home.html">Landing Page</a>
+        <a href="home.html" class="active">Store Home</a>
+        <a href="#converging-runway" class="nav-runway-link">⚡ Runway Convergence</a>
+        <a href="#products" onclick="filterProducts('Women')">Women</a>
+        <a href="#products" onclick="filterProducts('Men')">Men</a>
+        <a href="#products" onclick="filterProducts('Boys')">Boys</a>
+        <a href="#products" onclick="filterProducts('Girls')">Girls</a>
+        <a href="index.html" class="nav-login-link" id="navLoginLink">Login</a>
+    </nav>
+
+    <div class="header-icons">
+        <button class="icon-btn auth-btn" title="Member Account / Login">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span id="navAuthLabel">Login</span>
+        </button>
+        <button class="icon-btn search-btn" title="Search Products (Ctrl+K)" onclick="openSearchModal()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <span>Search</span>
+        </button>
+        <button class="icon-btn wishlist-btn" title="View Wishlist" onclick="showWishlist()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+            <span class="badge" id="wishlistCount">0</span>
+        </button>
+        <button class="icon-btn track-btn" title="Track Order Status" onclick="openTrackOrderModal()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <rect x="1" y="3" width="15" height="13"></rect>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+            </svg>
+            <span>Track Order</span>
+        </button>
+        <button class="icon-btn cart-btn" title="View Shopping Bag" onclick="showCart()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span class="badge" id="cartCount">0</span>
+        </button>
+    </div>
+</header>
+
+
+<!-- ================= STORE HERO ================= -->
+<section class="hero store-hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content reveal-scale">
+        <p class="subtitle">NEW COLLECTION 2026</p>
+        <h1>STYLE YOUR WAY</h1>
+        <p class="description">
+            Discover modern fashion for Women, Men, Boys & Girls. Carefully crafted pieces for effortless elegance.
+        </p>
+        <button class="btn-primary" onclick="shopNow()">
+            EXPLORE STORE NOW ↓
+        </button>
+    </div>
+</section>
+
+
+<!-- ================= STORE PERKS / ADVANTAGES ================= -->
+<section class="store-perks-section" id="perks">
+    <div class="perks-container">
+        <div class="perk-box reveal-left">
+            <span class="perk-icon">🚚</span>
+            <div>
+                <h4>Free Shipping Over ₹999</h4>
+                <p>Express 2-4 business day delivery across all major cities.</p>
+            </div>
+        </div>
+        <div class="perk-box reveal-up">
+            <span class="perk-icon">🔄</span>
+            <div>
+                <h4>7-Day Easy Returns</h4>
+                <p>No questions asked doorstep pickup and instant refunds.</p>
+            </div>
+        </div>
+        <div class="perk-box reveal-up">
+            <span class="perk-icon">🔒</span>
+            <div>
+                <h4>100% Secure Checkout</h4>
+                <p>Protected by SSL encryption. UPI, Cards & COD available.</p>
+            </div>
+        </div>
+        <div class="perk-box reveal-right">
+            <span class="perk-icon">✨</span>
+            <div>
+                <h4>Premium Guarantee</h4>
+                <p>Ethically sourced organic cotton & artisan craftsmanship.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= CATEGORY FILTER ================= -->
+<section class="categories" id="categories-section">
+    <div class="section-heading reveal-up">
+        <p>EXPLORE BY CATEGORY</p>
+        <h2>CURATED SELECTIONS</h2>
+    </div>
+
+    <div class="category-buttons reveal-scale">
+        <button class="cat-btn active" onclick="filterProducts('All')">ALL PRODUCTS</button>
+        <button class="cat-btn" onclick="filterProducts('Women')">WOMEN</button>
+        <button class="cat-btn" onclick="filterProducts('Men')">MEN</button>
+        <button class="cat-btn" onclick="filterProducts('Boys')">BOYS</button>
+        <button class="cat-btn" onclick="filterProducts('Girls')">GIRLS</button>
+    </div>
+</section>
+
+
+<!-- ================= CONVERGING PRODUCT RUNWAY SHOWCASE ================= -->
+<section class="converging-showcase-section" id="converging-runway">
+    <div class="converging-header text-center reveal-up">
+        <span class="section-tag">✦ SIGNATURE SMOOTH SCROLL EXPERIENCE ✦</span>
+        <h2>SPRING 2026 RUNWAY CONVERGENCE</h2>
+        <p class="section-subtext">Scroll down to watch clothing pieces seamlessly slide from the left & right sides into perfect center alignment</p>
+        
+        <div class="scroll-demo-indicator">
+            <span class="indicator-pulse"></span>
+            <span>Images slide from screen sides towards center as you scroll down</span>
+            <button class="btn-demo-replay" onclick="replayScrollAnimation()">Replay Animation ↺</button>
+        </div>
+    </div>
+
+    <div class="converging-pairs-container">
+        <!-- PAIR 1 -->
+        <div class="converge-pair-row" id="pair-1">
+            <div class="converge-badge-center">
+                <span>OUTFIT 01</span>
+                <h3>Luxe Silk & Italian Wool</h3>
+            </div>
+            <div class="converge-card converge-left" onclick="openProduct('Linen Trench Coat')">
+                <div class="converge-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=800&q=80" alt="Luxe Silk Trench Coat">
+                    <div class="side-tag left-tag">SLIDING FROM LEFT ←</div>
+                    <div class="converge-overlay">
+                        <span class="p-category">WOMEN</span>
+                        <h4>Luxe Silk Trench Coat</h4>
+                        <span class="p-price">₹3,499</span>
+                        <button class="btn-converge-quick" onclick="event.stopPropagation(); openQuickView('Linen Trench Coat')">QUICK VIEW 👁️</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="converge-center-divider">
+                <div class="divider-line"></div>
+                <div class="divider-icon">✦</div>
+                <div class="divider-line"></div>
+            </div>
+
+            <div class="converge-card converge-right" onclick="openProduct('Slim Fit Chinos')">
+                <div class="converge-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1479064555552-3ef4979f8908?auto=format&fit=crop&w=800&q=80" alt="Italian Wool Trousers">
+                    <div class="side-tag right-tag">→ SLIDING FROM RIGHT</div>
+                    <div class="converge-overlay">
+                        <span class="p-category">MEN</span>
+                        <h4>Italian Wool Trousers</h4>
+                        <span class="p-price">₹1,899</span>
+                        <button class="btn-converge-quick" onclick="event.stopPropagation(); openQuickView('Slim Fit Chinos')">QUICK VIEW 👁️</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAIR 2 -->
+        <div class="converge-pair-row" id="pair-2">
+            <div class="converge-badge-center">
+                <span>OUTFIT 02</span>
+                <h3>Urban Streetwear & Leather</h3>
+            </div>
+            <div class="converge-card converge-left" onclick="openProduct('Denim Jacket')">
+                <div class="converge-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=80" alt="Urban Denim Jacket">
+                    <div class="side-tag left-tag">SLIDING FROM LEFT ←</div>
+                    <div class="converge-overlay">
+                        <span class="p-category">WOMEN</span>
+                        <h4>Urban Denim Jacket</h4>
+                        <span class="p-price">₹2,499</span>
+                        <button class="btn-converge-quick" onclick="event.stopPropagation(); openQuickView('Denim Jacket')">QUICK VIEW 👁️</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="converge-center-divider">
+                <div class="divider-line"></div>
+                <div class="divider-icon">⚡</div>
+                <div class="divider-line"></div>
+            </div>
+
+            <div class="converge-card converge-right" onclick="openProduct('Urban Trucker Jacket')">
+                <div class="converge-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1495105787522-5334e3ffa0ef?auto=format&fit=crop&w=800&q=80" alt="Urban Trucker Jacket">
+                    <div class="side-tag right-tag">→ SLIDING FROM RIGHT</div>
+                    <div class="converge-overlay">
+                        <span class="p-category">MEN</span>
+                        <h4>Urban Trucker Jacket</h4>
+                        <span class="p-price">₹2,799</span>
+                        <button class="btn-converge-quick" onclick="event.stopPropagation(); openQuickView('Urban Trucker Jacket')">QUICK VIEW 👁️</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAIR 3 -->
+        <div class="converge-pair-row" id="pair-3">
+            <div class="converge-badge-center">
+                <span>OUTFIT 03</span>
+                <h3>Evening Glamour & Couture</h3>
+            </div>
+            <div class="converge-card converge-left" onclick="openProduct('Evening Satin Gown')">
+                <div class="converge-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=800&q=80" alt="Evening Satin Gown">
+                    <div class="side-tag left-tag">SLIDING FROM LEFT ←</div>
+                    <div class="converge-overlay">
+                        <span class="p-category">WOMEN</span>
+                        <h4>Evening Satin Gown</h4>
+                        <span class="p-price">₹4,299</span>
+                        <button class="btn-converge-quick" onclick="event.stopPropagation(); openQuickView('Evening Satin Gown')">QUICK VIEW 👁️</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="converge-center-divider">
+                <div class="divider-line"></div>
+                <div class="divider-icon">★</div>
+                <div class="divider-line"></div>
+            </div>
+
+            <div class="converge-card converge-right" onclick="openProduct('Executive Blazer')">
+                <div class="converge-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80" alt="Executive Velvet Blazer">
+                    <div class="side-tag right-tag">→ SLIDING FROM RIGHT</div>
+                    <div class="converge-overlay">
+                        <span class="p-category">MEN</span>
+                        <h4>Executive Velvet Blazer</h4>
+                        <span class="p-price">₹3,999</span>
+                        <button class="btn-converge-quick" onclick="event.stopPropagation(); openQuickView('Executive Blazer')">QUICK VIEW 👁️</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= PRODUCTS ================= -->
+<section class="products-section" id="products">
+    <div class="section-heading reveal-up">
+        <p>OUR EXCLUSIVE COLLECTION</p>
+        <h2>NEW ARRIVALS FOR EVERYONE</h2>
+    </div>
+
+    <div class="product-grid">
+
+        <!-- ================= WOMEN ================= -->
+        <div class="product reveal-left" data-category="Women" onclick="openProduct('Summer Dress')">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=700&q=80" alt="Summer Dress" loading="lazy">
+                <span class="tag">NEW</span>
+                <button class="heart" title="Add to Wishlist" onclick="event.stopPropagation(); addWishlist('Summer Dress')">♡</button>
+            </div>
+            <div class="product-info">
+                <p>Women</p>
+                <h3>Summer Dress</h3>
+                <strong>₹1,999</strong>
+                <button class="bag-button" onclick="event.stopPropagation(); addToCart('Summer Dress')">ADD TO BAG</button>
+            </div>
+        </div>
+
+        <div class="product reveal-up" data-category="Women" onclick="openProduct('Denim Jacket')">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=700&q=80" alt="Denim Jacket" loading="lazy">
+                <span class="tag hot">HOT</span>
+                <button class="heart" title="Add to Wishlist" onclick="event.stopPropagation(); addWishlist('Denim Jacket')">♡</button>
+            </div>
+            <div class="product-info">
+                <p>Women</p>
+                <h3>Denim Jacket</h3>
+                <strong>₹2,499</strong>
+                <button class="bag-button" onclick="event.stopPropagation(); addToCart('Denim Jacket')">ADD TO BAG</button>
+            </div>
+        </div>
+
+        <div class="product reveal-right" data-category="Women" onclick="openProduct('Wide Leg Pants')">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=700&q=80" alt="Wide Leg Pants" loading="lazy">
+                <button class="heart" title="Add to Wishlist" onclick="event.stopPropagation(); addWishlist('Wide Leg Pants')">♡</button>
+            </div>
+            <div class="product-info">
+                <p>Women</p>
+                <h3>Wide Leg Pants</h3>
+                <strong>₹1,799</strong>
+                <button class="bag-button" onclick="event.stopPropagation(); addToCart('Wide Leg Pants')">ADD TO BAG</button>
+            </div>
+        </div>
+
+        <div class="product reveal-left" data-category="Women" onclick="openProduct('Silk Floral Blouse')">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=700&q=80" alt="Silk Floral Blouse" loading="lazy">
+                <span class="tag">LUXE</span>
+                <button class="heart" title="Add to Wishlist" onclick="event.stopPropagation(); addWishlist('Silk Floral Blouse')">♡</button>
+            </div>
+            <div class="product-info">
+                <p>Women</p>
+                <h3>Silk Floral Blouse</h3>
+                <strong>₹2,199</strong>
+                <button class="bag-button" onclick="event.stopPropagation(); addToCart('Silk Floral Blouse')">ADD TO BAG</button>
+            </div>
+        </div>
+
+        <div class="product reveal-up" data-category="Women" onclick="openProduct('Linen Trench Coat')">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=700&q=80" alt="Linen Trench Coat" loading="lazy">
+                <button class="heart" title="Add to Wishlist" onclick="event.stopPropagation(); addWishlist('Linen Trench Coat')">♡</button>
+            </div>
+            <div class="product-info">
+                <p>Women</p>
+                <h3>Linen Trench Coat</h3>
+                <strong>₹3,499</strong>
+                <button class="bag-button" onclick="event.stopPropagation(); addToCart('Linen Trench Coat')">ADD TO BAG</button>
+            </div>
+        </div>
+
+        <div class="product reveal-right" data-category="Women" onclick="openProduct('Evening Satin Gown')">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=700&q=80" alt="Evening Satin Gown" loading="lazy">
+                <span class="tag">FORMAL</span>
+                <button class="heart" title="Add to Wishlist" onclick="event.stopPropagation(); addWishlist('Evening Satin Gown')">♡</button>
+            </div>
+            <div class="product-info">
+                <p>Women</p>
+                <h3>Evening Satin Gown</h3>
+                <strong>₹4,299</strong>
+                <button class="bag-button" onclick="event.stopPropagation(); addToCart('Evening Satin Gown')">ADD TO BAG</button>
+            </div>
+        </div>
+
+        <!-- ================= MEN ================= -->
+        <div class="product reveal-left" data-category="Men" onclick="openProduct('Casual Shirt')">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=700&q=80" alt="Casual Shirt" loading="lazy">
+                <span class="tag">NEW</span>
+                <button class="heart" title="Add to Wishlist" onclick="event.stopPropagation(); addWishlist('Casual Shirt')">♡</button>
+            </div>
+            <div class="product-info">
+                <p>Men</p>
+                <h3>Casual Shirt</h3>
+                <strong>₹1,499</strong>
+                <button class="bag-button" onclick="event.stopPropagation(); addToCart('Casual Shirt')">ADD TO BAG</button>
+            </div>
+        </div>
+
+        <div class="product reveal-up" data-category="Men" onclick="openProduct('Classic T-Shirt')">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80" alt="Classic T-Shirt" loading="lazy">
+                <button class="heart" title="Add to Wishlist" onclick="event.stopPropagation(); addWishlist('Classic T-Shirt')">♡</button>
+            </div>
+            <div class="product-info">
+                <p>Men</p>
+                <h3>Classic T-Shirt</h3>
+                <strong>₹899</strong>
+                <button class="bag-button" onclick="event.stopPropagation(); addToCart('Classic T-Shirt')">ADD TO BAG</button>
+            </div>
+        </div>
+
+        <div class="product reveal-right" data-category="Men" onclick="openProduct('Executive Blazer')">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=700&q=80" alt="Executive Blazer" loading="lazy">
+                <span class="tag hot">HOT</span>
+                <button class="heart" title="Add to Wishlist" onclick="event.stopPropagation(); addWishlist('Executive Blazer')">♡</button>
+            </div>
+            <div class="product-info">
+                <p>Men</p>
+                <h3>Executive Blazer</h3>
+                <strong>₹3,999</strong>
+                <button class="bag-button" onclick="event.stopPropagation(); addToCart('Executive Blazer')">ADD TO BAG</button>
+            </div>
+        </div>
+
+        <div class="product reveal-left" data-category="Men" onclick="openProduct('Slim Fit Chinos')">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1479064555552-3ef4979f8908?auto=format&fit=crop&w=700&q=80" alt="Slim Fit Chinos" loading="lazy">
+                <button class="heart" title="Add to Wishlist" onclick="event.stopPropagation(); addWishlist('Slim Fit Chinos')">♡</button>
+            </div>
+            <div class="product-info">
+                <p>Men</p>
+                <h3>Slim Fit Chinos</h3>
+                <strong>₹1,899</strong>
+                <button class="bag-button" onclick="event.stopPropagation(); addToCart('Slim Fit Chinos')">ADD TO BAG</button>
+            </div>
+        </div>
+
+        <div class="product reveal-up" data-category="Men" onclick="openProduct('Urban Trucker Jacket')">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1495105787522-5334e3ffa0ef?auto=format&fit=crop&w=700&q=80" alt="Urban Trucker Jacket" loading="lazy">
+                <span class="tag">RUGGED</span>
+                <button class="heart" title="Add to Wishlist" onclick="event.stopPropagation(); addWishlist('Urban Trucker Jacket')">♡</button>
+            </div>
+            <div class="product-info">
+                <p>Men</p>
+                <h3>Urban Trucker Jacket</h3>
+                <strong>₹2,799</strong>
+                <button class="bag-button" onclick="event.stopPropagation(); addToCart('Urban Trucker Jacket')">ADD TO BAG</button>
+            </div>
+        </div>
+
+        <div class="product reveal-right" data-category="Men" onclick="openProduct('Oversized Hoodie')">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=700&q=80" alt="Oversized Hoodie" loading="lazy">
+                <button class="heart" title="Add to Wishlist" onclick="event.stopPropagation(); addWishlist('Oversized Hoodie')">♡</button>
+            </div>
+            <div class="product-info">
+                <p>Men</p>
+                <h3>Oversized Hoodie</h3>
+                <strong>₹1,699</strong>
+                <button class="bag-button" onclick="event.stopPropagation(); addToCart('Oversized Hoodie')">ADD TO BAG</button>
+            </div>
+        </div>
+
+        <!-- ================= BOYS ================= -->
+        <div class="product reveal-left" data-category="Boys" onclick="openProduct('Cool Graphic Tee')">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=700&q=80" alt="Cool Graphic Tee" loading="lazy">
+                <span class="tag">POPULAR</span>
+                <button class="heart" title="Add to Wishlist" onclick="event.stopPropagation(); addWishlist('Cool Graphic Tee')">♡</button>
+            </div>
+            <div class="product-info">
+                <p>Boys</p>
+                <h3>Cool Graphic Tee</h3>
+                <strong>₹699</strong>
+                <button class="bag-button" onclick="event.stopPropagation(); addToCart('Cool Graphic Tee')">ADD TO BAG</button>
+            </div>
+        </div>
+
+        <div class="product reveal-up" data-category="Boys" onclick="openProduct('Boys Denim Overalls')">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&w=700&q=80" alt="Boys Denim Overalls" loading="lazy">
+                <span class="tag">NEW</span>
+                <button class="heart" title="Add to Wishlist" onclick="event.stopPropagation(); addWishlist('Boys Denim Overalls')">♡</button>
+            </div>
+            <div class="product-info">
+                <p>Boys</p>
+                <h3>Boys Denim Overalls</h3>
+                <strong>₹1,299</strong>
+                <button class="bag-button" onclick="event.stopPropagation(); addToCart('Boys Denim Overalls')">ADD TO BAG</button>
+            </div>
+        </div>
+
+        <div class="product reveal-right" data-category="Boys" onclick="openProduct('Boys Tracksuit Set')">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1503919545889-aef636e10ad4?auto=format&fit=crop&w=700&q=80" alt="Boys Tracksuit Set" loading="lazy">
+                <button class="heart" title="Add to Wishlist" onclick="event.stopPropagation(); addWishlist('Boys Tracksuit Set')">♡</button>
+            </div>
+            <div class="product-info">
+                <p>Boys</p>
+                <h3>Boys Tracksuit Set</h3>
+                <strong>₹1,499</strong>
+                <button class="bag-button" onclick="event.stopPropagation(); addToCart('Boys Tracksuit Set')">ADD TO BAG</button>
+            </div>
+        </div>
+
+        <div class="product reveal-left" data-category="Boys" onclick="openProduct('Boys Bomber Jacket')">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1514989940723-e8e51635b782?auto=format&fit=crop&w=700&q=80" alt="Boys Bomber Jacket" loading="lazy">
+                <span class="tag hot">TRENDING</span>
+                <button class="heart" title="Add to Wishlist" onclick="event.stopPropagation(); addWishlist('Boys Bomber Jacket')">♡</button>
+            </div>
+            <div class="product-info">
+                <p>Boys</p>
+                <h3>Boys Bomber Jacket</h3>
+                <strong>₹1,899</strong>
+                <button class="bag-button" onclick="event.stopPropagation(); addToCart('Boys Bomber Jacket')">ADD TO BAG</button>
+            </div>
+        </div>
+
+        <div class="product reveal-up" data-category="Boys" onclick="openProduct('Checked Flannel Shirt')">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?auto=format&fit=crop&w=700&q=80" alt="Checked Flannel Shirt" loading="lazy">
+                <button class="heart" title="Add to Wishlist" onclick="event.stopPropagation(); addWishlist('Checked Flannel Shirt')">♡</button>
+            </div>
+            <div class="product-info">
+                <p>Boys</p>
+                <h3>Checked Flannel Shirt</h3>
+                <strong>₹999</strong>
+                <button class="bag-button" onclick="event.stopPropagation(); addToCart('Checked Flannel Shirt')">ADD TO BAG</button>
+            </div>
+        </div>
+
+        <div class="product reveal-right" data-category="Boys" onclick="openProduct('Boys Chino Shorts')">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=700&q=80" alt="Boys Chino Shorts" loading="lazy">
+                <button class="heart" title="Add to Wishlist" onclick="event.stopPropagation(); addWishlist('Boys Chino Shorts')">♡</button>
+            </div>
+            <div class="product-info">
+                <p>Boys</p>
+                <h3>Boys Chino Shorts</h3>
+                <strong>₹799</strong>
+                <button class="bag-button" onclick="event.stopPropagation(); addToCart('Boys Chino Shorts')">ADD TO BAG</button>
+            </div>
+        </div>
+
+        <!-- ================= GIRLS ================= -->
+        <div class="product reveal-left" data-category="Girls" onclick="openProduct('Floral Twirl Dress')">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1621452773781-0f992fd1f5cb?auto=format&fit=crop&w=700&q=80" alt="Floral Twirl Dress" loading="lazy">
+                <span class="tag">BESTSELLER</span>
+                <button class="heart" title="Add to Wishlist" onclick="event.stopPropagation(); addWishlist('Floral Twirl Dress')">♡</button>
+            </div>
+            <div class="product-info">
+                <p>Girls</p>
+                <h3>Floral Twirl Dress</h3>
+                <strong>₹1,199</strong>
+                <button class="bag-button" onclick="event.stopPropagation(); addToCart('Floral Twirl Dress')">ADD TO BAG</button>
+            </div>
+        </div>
+
+        <div class="product reveal-up" data-category="Girls" onclick="openProduct('Girls Denim Skirt Set')">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?auto=format&fit=crop&w=700&q=80" alt="Girls Denim Skirt Set" loading="lazy">
+                <span class="tag">NEW</span>
+                <button class="heart" title="Add to Wishlist" onclick="event.stopPropagation(); addWishlist('Girls Denim Skirt Set')">♡</button>
+            </div>
+            <div class="product-info">
+                <p>Girls</p>
+                <h3>Girls Denim Skirt Set</h3>
+                <strong>₹1,399</strong>
+                <button class="bag-button" onclick="event.stopPropagation(); addToCart('Girls Denim Skirt Set')">ADD TO BAG</button>
+            </div>
+        </div>
+
+        <div class="product reveal-right" data-category="Girls" onclick="openProduct('Pastel Knit Cardigan')">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1596870230751-ebdfce98ec42?auto=format&fit=crop&w=700&q=80" alt="Pastel Knit Cardigan" loading="lazy">
+                <button class="heart" title="Add to Wishlist" onclick="event.stopPropagation(); addWishlist('Pastel Knit Cardigan')">♡</button>
+            </div>
+            <div class="product-info">
+                <p>Girls</p>
+                <h3>Pastel Knit Cardigan</h3>
+                <strong>₹1,099</strong>
+                <button class="bag-button" onclick="event.stopPropagation(); addToCart('Pastel Knit Cardigan')">ADD TO BAG</button>
+            </div>
+        </div>
+
+        <div class="product reveal-left" data-category="Girls" onclick="openProduct('Party Princess Frock')">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1502980426475-b83966705988?auto=format&fit=crop&w=700&q=80" alt="Party Princess Frock" loading="lazy">
+                <span class="tag hot">PARTY</span>
+                <button class="heart" title="Add to Wishlist" onclick="event.stopPropagation(); addWishlist('Party Princess Frock')">♡</button>
+            </div>
+            <div class="product-info">
+                <p>Girls</p>
+                <h3>Party Princess Frock</h3>
+                <strong>₹1,799</strong>
+                <button class="bag-button" onclick="event.stopPropagation(); addToCart('Party Princess Frock')">ADD TO BAG</button>
+            </div>
+        </div>
+
+        <div class="product reveal-up" data-category="Girls" onclick="openProduct('Girls Printed Hoodie')">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?auto=format&fit=crop&w=700&q=80" alt="Girls Printed Hoodie" loading="lazy">
+                <button class="heart" title="Add to Wishlist" onclick="event.stopPropagation(); addWishlist('Girls Printed Hoodie')">♡</button>
+            </div>
+            <div class="product-info">
+                <p>Girls</p>
+                <h3>Girls Printed Hoodie</h3>
+                <strong>₹1,299</strong>
+                <button class="bag-button" onclick="event.stopPropagation(); addToCart('Girls Printed Hoodie')">ADD TO BAG</button>
+            </div>
+        </div>
+
+        <div class="product reveal-right" data-category="Girls" onclick="openProduct('Girls Cotton Jumpsuit')">
+            <div class="image-box">
+                <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=700&q=80" alt="Girls Cotton Jumpsuit" loading="lazy">
+                <button class="heart" title="Add to Wishlist" onclick="event.stopPropagation(); addWishlist('Girls Cotton Jumpsuit')">♡</button>
+            </div>
+            <div class="product-info">
+                <p>Girls</p>
+                <h3>Girls Cotton Jumpsuit</h3>
+                <strong>₹1,499</strong>
+                <button class="bag-button" onclick="event.stopPropagation(); addToCart('Girls Cotton Jumpsuit')">ADD TO BAG</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= COMMUNITY LOOKBOOK & INSTAGRAM FEED ================= -->
+<section class="community-section" id="community">
+    <div class="section-heading text-center reveal-up">
+        <p class="section-tag">COMMUNITY & STYLING</p>
+        <h2>#URBANSTYLE EVERYDAY</h2>
+        <p class="section-subtext">Tag @UrbanStyle on Instagram to be featured in our official store gallery</p>
+    </div>
+
+    <div class="community-grid">
+        <div class="community-card reveal-left">
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80" alt="Community Style 1">
+            <div class="comm-overlay">
+                <span>@sophia_style</span>
+                <small>Wearing Summer Dress</small>
+            </div>
+        </div>
+
+        <div class="community-card reveal-up">
+            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80" alt="Community Style 2">
+            <div class="comm-overlay">
+                <span>@aarav_fits</span>
+                <small>Wearing Casual Shirt</small>
+            </div>
+        </div>
+
+        <div class="community-card reveal-up">
+            <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=600&q=80" alt="Community Style 3">
+            <div class="comm-overlay">
+                <span>@priya_wardrobe</span>
+                <small>Wearing Denim Jacket</small>
+            </div>
+        </div>
+
+        <div class="community-card reveal-right">
+            <img src="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=600&q=80" alt="Community Style 4">
+            <div class="comm-overlay">
+                <span>@denim_vibes</span>
+                <small>Wearing Wide Leg Pants</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= NEWSLETTER ================= -->
+<section class="newsletter">
+    <div class="newsletter-card reveal-scale">
+        <h2>JOIN THE URBANSTYLE CLUB</h2>
+        <p>Subscribe now to get <strong>15% OFF</strong> your first order plus secret sales & weekly drop alerts.</p>
+        <div class="input-group">
+            <input type="email" id="email" placeholder="Enter your email address...">
+            <button onclick="subscribe()">SUBSCRIBE</button>
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    <div>
+        <h2>URBANSTYLE</h2>
+        <p>Modern, sustainable, and sophisticated fashion tailored for your lifestyle.</p>
+    </div>
+    <div>
+        <h3>SHOP DIRECTORY</h3>
+        <p><a href="#products" onclick="filterProducts('Women')">Women Collection</a></p>
+        <p><a href="#products" onclick="filterProducts('Men')">Men Collection</a></p>
+        <p><a href="#products" onclick="filterProducts('Boys')">Boys Collection</a></p>
+        <p><a href="#products" onclick="filterProducts('Girls')">Girls Collection</a></p>
+    </div>
+    <div>
+        <h3>CUSTOMER CARE</h3>
+        <p>Contact Support</p>
+        <p>Shipping Policy</p>
+        <p>Returns & Exchanges</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
